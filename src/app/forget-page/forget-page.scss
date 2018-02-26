@@ -1,0 +1,19 @@
+.logo-container {
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .title {
+        font-size: 18px;
+        color: gray;
+    }
+}
+
+.login-container {
+    width: 80%;
+    border-radius: 10px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 10px;
+}

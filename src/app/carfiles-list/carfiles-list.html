@@ -1,0 +1,17 @@
+<div class="header-search">
+    <div class="header-search-container">
+        <input type="text" placeholder="搜索车牌、姓名、手机号">
+    </div>
+    <div class="header-qrcode-scan">
+        <i class="ion-qr-scanner"></i>
+    </div>
+</div>
+<ul>
+    <li *ngFor="let item of list">
+        {{item.car_num}}
+        {{item.realname}}
+        {{item.mobile}}
+    </li>
+</ul>
+
+<footer [props]="app.props.footers"></footer>

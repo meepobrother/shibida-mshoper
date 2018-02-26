@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="">
+	<application setting="false">
+		<name><![CDATA[汽修门店管理端]]></name>
+		<identifie><![CDATA[shibida_mshoper]]></identifie>
+		<version><![CDATA[1.5]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[汽修门店管理端]]></ability>
+		<description><![CDATA[汽修门店管理端]]></description>
+		<author><![CDATA[imeepos]]></author>
+		<url><![CDATA[http://bbs.we7.cc]]></url>
+	</application>
+	<platform>
+		<subscribes></subscribes>
+		<handles></handles>
+		<rule embed="false" />
+		<card embed="true" />
+		<supports>
+			<item type="app" />
+			<item type="webapp" />
+			<item type="system_welcome" />
+		</supports>
+	</platform>
+	<bindings>
+		<cover>
+			<entry title="首页" do="home" state="" direct="false" />
+			<entry title="开单" do="billing" state="" direct="false" />
+			<entry title="搜索" do="carfilesList" state="" direct="false" />
+			<entry title="工单" do="orderList" state="" direct="false" />
+
+			<entry title="登录" do="login" state="" direct="false" />
+			<entry title="注册" do="register" state="" direct="false" />
+			<entry title="忘记密码" do="forget" state="" direct="false" />
+
+			<entry title="营业汇总" do="total" state="" direct="false" />
+			<entry title="业绩查询" do="yeji" state="" direct="false" />
+			<entry title="财务报表" do="money" state="" direct="false" />
+			<entry title="数据分析" do="ansyc" state="" direct="false" />
+			<entry title="员工分红" do="bonus" state="" direct="false" />
+			<entry title="会员服务" do="service" state="" direct="false" />
+			<entry title="客户预约" do="coach" state="" direct="false" />
+			<entry title="提醒待办" do="message" state="" direct="false" />
+		</cover>
+		<menu>
+			<entry title="首页" do="home" state="" direct="false" />
+		</menu>
+		<system_welcome>
+			<entry title="首页" do="index" state="" direct="false" />
+		</system_welcome>
+		<webapp>
+			<entry title="首页" do="home" state="" direct="false" />
+		</webapp>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[install.php]]></install>
+	<uninstall><![CDATA[uninstall.php]]></uninstall>
+	<upgrade><![CDATA[upgrade.php]]></upgrade>
+</manifest>

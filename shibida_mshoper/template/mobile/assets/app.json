@@ -1,0 +1,133 @@
+{
+    "home": {
+        "swiper": {
+            "items": [
+                {
+                    "src": "assets/images/001.jpeg"
+                },
+                {
+                    "src": "assets/images/002.jpg"
+                }
+            ],
+            "config": {
+                "pagination": {
+                    "el": ".swiper-pagination",
+                    "type": "bullets"
+                }
+            },
+            "index": 0
+        },
+        "navs": [
+            {
+                "title": "客户管理",
+                "icon": "ion-ios-people",
+                "do": "member"
+            },
+            {
+                "title": "立即开单",
+                "icon": "ion-ios-plus",
+                "do": "billing"
+            }
+        ],
+        "grids": [
+            {
+                "title": "提醒待办",
+                "icon": "ion-ios-bell-outline",
+                "do": "message"
+            },
+            {
+                "title": "客户预约",
+                "icon": "ion-ios-alarm-outline",
+                "do": "coach"
+            },
+            {
+                "title": "会员服务",
+                "icon": "ion-ios-people-outline",
+                "do": "service"
+            },
+            {
+                "title": "员工分红",
+                "icon": "ion-ios-list-outline",
+                "do": "bonus"
+            },
+            {
+                "title": "数据分析",
+                "icon": "ion-ios-pie-outline",
+                "do": "ansyc"
+            },
+            {
+                "title": "财务报表",
+                "icon": "ion-ios-glasses-outline",
+                "do": "money"
+            },
+            {
+                "title": "营业汇总",
+                "icon": "ion-ios-pulse-strong",
+                "do": "total"
+            },
+            {
+                "title": "业绩查询",
+                "icon": "ion-ios-analytics-outline",
+                "do": "yeji"
+            }
+        ]
+    },
+    "footers": [
+        {
+            "title": "首页",
+            "default": {
+                "icon": "ion-ios-home-outline",
+                "style": {}
+            },
+            "active": {
+                "icon": "ion-ios-home",
+                "style": {}
+            },
+            "on": true,
+            "do": "home",
+            "params": {}
+        },
+        {
+            "title": "开单",
+            "default": {
+                "icon": "ion-ios-upload-outline",
+                "style": {}
+            },
+            "active": {
+                "icon": "ion-ios-upload",
+                "style": {}
+            },
+            "on": false,
+            "do": "billing",
+            "params": {}
+        },
+        {
+            "title": "查找",
+            "default": {
+                "icon": "ion-ios-search",
+                "style": {}
+            },
+            "active": {
+                "icon": "ion-ios-search-strong",
+                "style": {}
+            },
+            "on": false,
+            "do": "carfilesList",
+            "params": {}
+        },
+        {
+            "title": "工单",
+            "default": {
+                "icon": "ion-ios-bookmarks-outline",
+                "style": {}
+            },
+            "active": {
+                "icon": "ion-ios-bookmarks",
+                "style": {}
+            },
+            "on": false,
+            "do": "orderList",
+            "params": {}
+        }
+    ]
+}

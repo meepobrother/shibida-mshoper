@@ -1,0 +1,8 @@
+<ul *ngIf="list.length>0">
+    <li *ngFor="let item of list">{{item|json}}</li>
+</ul>
+<div *ngIf="list.length==0" class="empty">
+    尚无数据&nbsp;
+    <a href="javascript:;" (click)="add()">立即添加</a>
+</div>
+<footer [props]="app.props.footers"></footer>

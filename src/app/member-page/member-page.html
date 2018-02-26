@@ -1,0 +1,12 @@
+<div class="search-results" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()" (scrolledUp)="onScrollUp()">
+    <ul>
+        <li *ngFor="let item of list">
+            <img class="avatar" [src]="item.avatar">
+            <span>{{item.nickname}}</span>
+            <i [class.vip]="item.vip == 0">
+                vip
+            </i>
+        </li>
+    </ul>
+</div>

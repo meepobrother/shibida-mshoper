@@ -1,0 +1,19 @@
+:host {
+    background: #f3f3f3;
+    display: block;
+    height: 100%;
+}
+
+
+
+.button-sp-area {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin-top: 5px;
+    .weui-btn {
+        margin: 0px;
+        flex: 1;
+        border-radius: 0px;
+    }
+}

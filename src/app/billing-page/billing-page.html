@@ -1,0 +1,83 @@
+<div class="form-row">
+    <a class="weui-cell weui-cell_access" (click)="addOrEditCar()" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>车辆信息</p>
+        </div>
+        <div class="weui-cell__ft">
+            添加
+        </div>
+    </a>
+</div>
+
+<div class="form-row">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>外观检查</p>
+        </div>
+        <div class="weui-cell__ft">添加</div>
+    </a>
+</div>
+
+<div class="form-row">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>车检报告</p>
+        </div>
+        <div class="weui-cell__ft">添加</div>
+    </a>
+</div>
+
+<div class="form-row">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>需要洗车</p>
+        </div>
+        <div class="weui-cell__ft">不需要</div>
+    </a>
+</div>
+
+<div class="form-row">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>更换零件</p>
+        </div>
+        <div class="weui-cell__ft">添加</div>
+    </a>
+</div>
+
+<div class="form-row">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>工时服务</p>
+        </div>
+        <div class="weui-cell__ft">添加</div>
+    </a>
+</div>
+
+<div class="form-row">
+    <a class="weui-cell weui-cell_access" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>其他收费项目</p>
+        </div>
+        <div class="weui-cell__ft">添加</div>
+    </a>
+</div>
+
+<div class="form-row">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入文本留言" rows="3"></textarea>
+            <div class="weui-textarea-counter">
+                <span>0</span>/200
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="button-sp-area">
+    <a href="javascript:;" class="weui-btn weui-btn_primary">客户签字</a>
+    <a href="javascript:;" class="weui-btn weui-btn_default">保存</a>
+    <a href="javascript:;" class="weui-btn weui-btn_warn">开单</a>
+</div>
+
+<footer [props]="app.props.footers"></footer>

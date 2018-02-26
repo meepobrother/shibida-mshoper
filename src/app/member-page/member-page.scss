@@ -1,0 +1,24 @@
+.avatar {
+    width: 3em;
+    height: 3em;
+}
+
+ul {
+    li {
+        position: relative;
+        &:hover {
+            background: #efefef;
+        }
+        .vip {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            border-radius: .2em;
+            background: #af0000;
+            line-height: 15px;
+            color: #fff;
+            font-size: 10px;
+            padding: 0 4px;
+        }
+    }
+}
