@@ -9,7 +9,8 @@
     "we7": "ng build --prod --deploy-url=../addons/shibida_mshoper/template/mobile/",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "git": "git add . && git commit -m 'save to update' && git push origin master"
   },
   "private": true,
   "dependencies": {
