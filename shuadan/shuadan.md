@@ -5,7 +5,7 @@
     * 淘宝-苹果
         <img src="./iphone.png" width="20%" />
     * 淘宝-win
-        <img src="./winphonbe.png" width="20%" />
+        <img src="./winphone.png" width="20%" />
     * 淘宝-ipad
         <img src="./ipad.png" width="20%" />
 * [返利网站注册](http://mmm.xfz178.com/wap/login/register?re_uid=3042869)
