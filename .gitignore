@@ -5,6 +5,7 @@
 /dist-server
 /tmp
 /out-tsc
+/shibida_mshoper
 
 # dependencies
 /node_modules
