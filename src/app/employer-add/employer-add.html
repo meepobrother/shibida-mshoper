@@ -1,0 +1,28 @@
+<div class="header-search" [formGroup]="form">
+    <div class="header-search-container">
+        <input type="text" formControlName="key" placeholder="搜索姓名、手机号">
+    </div>
+    <div class="header-qrcode-scan">
+        <i class="ion-qr-scanner"></i>
+    </div>
+</div>
+<div class="employer-add-content" [fromRoot]="true" [infiniteScrollContainer]="selector" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="1.5" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+    (scrolledUp)="onScrollUp()">
+    <div class="weui-cells weui-cells_checkbox" style="margin-top: 0px;">
+        <label class="weui-cell weui-check__label" *ngFor="let item of list;index as i;" [attr.for]="'label'+i">
+            <div class="weui-cell__hd">
+                <input type="checkbox" class="weui-check" [(ngModel)]="item.select" [attr.id]="'label'+i">
+                <i class="weui-icon-checked"></i>
+            </div>
+            <div class="weui-cell__bd">
+                <p>
+                    {{item.realname || item.nickname}}
+                    <small>{{item.mobile || '未填写'}}</small>
+                </p>
+            </div>
+        </label>
+    </div>
+</div>
+<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:" (click)="save()">确定</a>
+</div>

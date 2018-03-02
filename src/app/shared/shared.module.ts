@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { FooterComponent } from './footer/footer';
+import { NumInput } from './num-input/num-input';
+
 import { We7ImgDirective } from './we7-img/we7-img';
 import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { AppService } from './app.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     direction: 'horizontal',
@@ -15,18 +17,22 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     imports: [
         SwiperModule,
         InfiniteScrollModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
     exports: [
         SwiperModule,
         InfiniteScrollModule,
         FooterComponent,
         We7ImgDirective,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule,
+        NumInput
     ],
     declarations: [
         FooterComponent,
-        We7ImgDirective
+        We7ImgDirective,
+        NumInput
     ],
     providers: [
         {

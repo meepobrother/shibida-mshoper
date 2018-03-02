@@ -1,0 +1,35 @@
+<div class="goods-container">
+    <div class="slide-nav">
+        <ul>
+            <li [class.active]="item.active" (click)="onItem(item)" *ngFor="let item of goods">{{item.title}}</li>
+            <li style="background: gray;color: #fff;" (click)="addGroup()">添加</li>
+        </ul>
+    </div>
+    <div class="slide-content" *ngIf="goodActive">
+        <div class="goods-search">
+            <input type="text" placeholder="请输入查询关键字">
+        </div>
+        <div class="goods-results">
+            <ul class="goods-container" *ngFor="let item of goodActive.items">
+                <li>
+                    <h4>{{item.title}}</h4>
+                    <ul class="goods-item">
+                        <li (click)="selectGoods(good)" *ngFor="let good of item.goods">
+                            <div class="good-title">{{good.title}}</div>
+                            <div class="good-price">{{good.price||'0.00'}}</div>
+                            <num-input></num-input>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="goods-footer" *ngIf="isBilling">
+    <div class="goods-footer-left">
+
+    </div>
+    <div class="goods-footer-right" (click)="next()">
+        下一步
+    </div>
+</div>

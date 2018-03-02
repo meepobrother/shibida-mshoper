@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AppService } from '../shared/app.service';
 import { We7RouterService } from 'meepo-we7-router';
@@ -42,6 +42,10 @@ export class CarAddPage implements OnInit {
     }
 
     save() {
+        if (isDevMode()) {
+            this.router.go('home', { carId: '1' });
+            return;
+        }
         this.postToSave().subscribe((res: any) => {
             if (res.status === 0) {
                 const { data } = res;
@@ -54,6 +58,10 @@ export class CarAddPage implements OnInit {
     }
 
     add() {
+        if (isDevMode()) {
+            this.router.go('billing', { carId: '1' });
+            return;
+        }
         this.postToSave().subscribe((res: any) => {
             if (res.status === 0) {
                 const { data } = res;

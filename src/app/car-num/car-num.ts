@@ -149,6 +149,7 @@ export class CarNumPage implements OnInit {
                 if (res.status === 0) {
                     const item = res.data;
                     localStorage.setItem('carfiles:' + item.id, JSON.stringify(item));
+                    this.app.form.get('car').setValue(item);
                     this.router.go('billing', { carId: item.id });
                 } else {
                     this.router.go('carAdd', { carNum: carNum });

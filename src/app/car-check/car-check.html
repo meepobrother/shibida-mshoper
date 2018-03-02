@@ -1,0 +1,30 @@
+<div class="form-row" *ngFor="let item of checkItems">
+    <a class="weui-cell weui-cell_access" (click)="toggleDetail(item)" href="javascript:;">
+        <div class="weui-cell__bd">
+            <p>{{item.title}}</p>
+        </div>
+        <div class="weui-cell__ft"></div>
+    </a>
+    <div class="form-row" *ngIf="item.open" style="margin-top: 0px;">
+        <div class="weui-cell" [class.first]="f" [class.last]="l" *ngFor="let it of item.items;first as f;last as l;">
+            <div class="weui-cell__hd">
+                <label class="weui-label">{{it.title}}</label>
+            </div>
+            <div class="weui-cell__bd">
+                <input class="weui-input" type="text" [(ngModel)]="it.value" placeholder="请输入qq号">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="weui-cell">
+        <div class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="综合评价" rows="3"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" (click)="finish()" href="javascript:">确定</a>
+</div>

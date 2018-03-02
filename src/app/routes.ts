@@ -2,6 +2,8 @@ import { HomePage } from './home-page/home-page';
 import { BillingPage } from './billing-page/billing-page';
 import { CarAddPage } from './car-add/car-add';
 import { CarNumPage } from './car-num/car-num';
+import { CarCheckPage } from './car-check/car-check';
+
 
 import { ServicePage } from './service-page/service-page';
 import { MemberPage } from './member-page/member-page';
@@ -13,6 +15,8 @@ import { CarfilesListPage } from './carfiles-list/carfiles-list';
 import { LoginPage } from './login-page/login-page';
 import { ForgetPage } from './forget-page/forget-page';
 import { RegisterPage } from './register-page/register-page';
+import { PaiPage } from './pai-page/pai-page';
+
 
 // 管理
 import { YejiPage } from './yeji-page/yeji-page';
@@ -22,61 +26,112 @@ import { CoachPage } from './coach-page/coach-page';
 import { BonusPage } from './bonus-page/bonus-page';
 import { AnsycPage } from './ansyc-page/ansyc-page';
 import { MoneyPage } from './money-page/money-page';
+import { GoodsPage } from './goods-page/goods-page';
+import { EmployerPage } from './employer-page/employer-page';
+import { EmployerAddPage } from './employer-add/employer-add';
+
+import { GoodsGroupAddPage } from './goods-group-add/goods-group-add';
 
 export const routes = [{
     path: 'login',
-    component: LoginPage
+    component: LoginPage,
+    login: false
 }, {
     path: 'forget',
-    component: ForgetPage
+    component: ForgetPage,
+    login: false
 }, {
     path: 'register',
-    component: RegisterPage
+    component: RegisterPage,
+    login: false
 }, {
     path: 'home',
-    component: HomePage
+    component: HomePage,
+    login: true
+}, {
+    path: 'index',
+    component: HomePage,
+    login: true
 }, {
     path: 'billing',
-    component: BillingPage
+    component: BillingPage,
+    login: true
 }, {
     path: 'carAdd',
-    component: CarAddPage
+    component: CarAddPage,
+    login: true
 }, {
     path: 'carNum',
-    component: CarNumPage
+    component: CarNumPage,
+    login: true
+}, {
+    path: 'carCheck',
+    component: CarCheckPage,
+    login: true
 }, {
     path: 'service',
-    component: ServicePage
+    component: ServicePage,
+    login: true
 }, {
     path: 'member',
-    component: MemberPage
+    component: MemberPage,
+    login: true
 }, {
     path: 'orderList',
-    component: OrderListPage
+    component: OrderListPage,
+    login: true
 }, {
     path: 'carfilesList',
-    component: CarfilesListPage
+    component: CarfilesListPage,
+    login: true
 }, {
     path: 'yeji',
-    component: YejiPage
+    component: YejiPage,
+    login: true
 }, {
     path: 'total',
-    component: TotalPage
+    component: TotalPage,
+    login: true
 }, {
     path: 'message',
-    component: MessagePage
+    component: MessagePage,
+    login: true
 }, {
     path: 'coach',
-    component: CoachPage
+    component: CoachPage,
+    login: true
 }, {
     path: 'bonus',
-    component: BonusPage
+    component: BonusPage,
+    login: true
 }, {
     path: 'ansyc',
-    component: AnsycPage
+    component: AnsycPage,
+    login: true
 }, {
     path: 'money',
-    component: MoneyPage
+    component: MoneyPage,
+    login: true
+}, {
+    path: 'goods',
+    component: GoodsPage,
+    login: true
+}, {
+    path: 'pai',
+    component: PaiPage,
+    login: true
+}, {
+    path: 'employer',
+    component: EmployerPage,
+    login: true
+}, {
+    path: 'employerAdd',
+    component: EmployerAddPage,
+    login: true
+},{
+    path: 'goodsGroupAdd',
+    component: GoodsGroupAddPage,
+    login: true
 }];
 
 export const components = [
@@ -97,5 +152,11 @@ export const components = [
     CoachPage,
     BonusPage,
     MoneyPage,
-    AnsycPage
+    AnsycPage,
+    CarCheckPage,
+    GoodsPage,
+    PaiPage,
+    EmployerPage,
+    EmployerAddPage,
+    GoodsGroupAddPage
 ];

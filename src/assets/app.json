@@ -19,9 +19,14 @@
         },
         "navs": [
             {
-                "title": "客户管理",
+                "title": "员工管理",
                 "icon": "ion-ios-people",
-                "do": "member"
+                "do": "employer"
+            },
+            {
+                "title": "零件管理",
+                "icon": "ion-ios-speedometer",
+                "do": "goods"
             },
             {
                 "title": "立即开单",
@@ -41,8 +46,8 @@
                 "do": "coach"
             },
             {
-                "title": "会员服务",
-                "icon": "ion-ios-people-outline",
+                "title": "工时管理",
+                "icon": "ion-ios-stopwatch-outline",
                 "do": "service"
             },
             {
@@ -128,6 +133,181 @@
             "on": false,
             "do": "orderList",
             "params": {}
+        }
+    ],
+    "checkItems": [
+        {
+            "title": "轮胎系统检测",
+            "items": [
+                {
+                    "title": "花纹深度",
+                    "value": "正常"
+                },
+                {
+                    "title": "生产日期",
+                    "value": "正常"
+                },
+                {
+                    "title": "老化程度",
+                    "value": "正常"
+                },
+                {
+                    "title": "车胎外观",
+                    "value": "正常"
+                },
+                {
+                    "title": "胎压",
+                    "value": "正常"
+                }
+            ]
+        },
+        {
+            "title": "刹车制动系统检测",
+            "items": [
+                {
+                    "title": "刹车片",
+                    "value": "正常"
+                },
+                {
+                    "title": "刹车盘",
+                    "value": "正常"
+                },
+                {
+                    "title": "制动液",
+                    "value": "正常"
+                }
+            ]
+        },
+        {
+            "title": "灯光系统检测",
+            "items": [
+                {
+                    "title": "远光灯",
+                    "value": "正常"
+                },
+                {
+                    "title": "近光灯",
+                    "value": "正常"
+                },
+                {
+                    "title": "转向灯",
+                    "value": "正常"
+                },
+                {
+                    "title": "刹车灯",
+                    "value": "正常"
+                },
+                {
+                    "title": "雾灯",
+                    "value": "正常"
+                },
+                {
+                    "title": "小灯",
+                    "value": "正常"
+                },
+                {
+                    "title": "倒车灯",
+                    "value": "正常"
+                },
+                {
+                    "title": "拍照灯",
+                    "value": "正常"
+                }
+            ]
+        },
+        {
+            "title": "电瓶系统检测",
+            "items": [
+                {
+                    "title": "电瓶健康程度",
+                    "value": "正常"
+                },
+                {
+                    "title": "电瓶充电量",
+                    "value": "正常"
+                },
+                {
+                    "title": "电瓶外观",
+                    "value": "正常"
+                },
+                {
+                    "title": "电瓶指示灯",
+                    "value": "正常"
+                },
+                {
+                    "title": "电瓶柱头",
+                    "value": "正常"
+                }
+            ]
+        },
+        {
+            "title": "油液系统检测",
+            "items": [
+                {
+                    "title": "机油检查",
+                    "value": "正常"
+                },
+                {
+                    "title": "防冻油检查",
+                    "value": "正常"
+                },
+                {
+                    "title": "转向油检查",
+                    "value": "正常"
+                }
+            ]
+        },
+        {
+            "title": "滤清器系统检测",
+            "items": [
+                {
+                    "title": "空气滤清器",
+                    "value": "正常"
+                },
+                {
+                    "title": "空调滤清器",
+                    "value": "正常"
+                }
+            ]
+        },
+        {
+            "title": "雨刷系统检测",
+            "items": [
+                {
+                    "title": "前后雨刷",
+                    "value": "正常"
+                },
+                {
+                    "title": "玻璃水",
+                    "value": "正常"
+                }
+            ]
+        },
+        {
+            "title": "随车工具箱检测",
+            "items": [
+                {
+                    "title": "检查警示牌",
+                    "value": "正常"
+                },
+                {
+                    "title": "灭火器",
+                    "value": "正常"
+                },
+                {
+                    "title": "备胎",
+                    "value": "正常"
+                }
+            ]
+        },
+        {
+            "title": "底盘检测",
+            "items": [
+                {
+                    "title": "底盘目视检测",
+                    "value": "正常"
+                }
+            ]
         }
     ]
 }

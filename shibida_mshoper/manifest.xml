@@ -3,7 +3,7 @@
 	<application setting="false">
 		<name><![CDATA[汽修门店管理端]]></name>
 		<identifie><![CDATA[shibida_mshoper]]></identifie>
-		<version><![CDATA[1.5]]></version>
+		<version><![CDATA[1.9]]></version>
 		<type><![CDATA[business]]></type>
 		<ability><![CDATA[汽修门店管理端]]></ability>
 		<description><![CDATA[汽修门店管理端]]></description>
@@ -40,6 +40,9 @@
 			<entry title="会员服务" do="service" state="" direct="false" />
 			<entry title="客户预约" do="coach" state="" direct="false" />
 			<entry title="提醒待办" do="message" state="" direct="false" />
+			<entry title="添加员工" do="employerAdd" state="" direct="false" />
+			<entry title="员工管理" do="employer" state="" direct="false" />
+			
 		</cover>
 		<menu>
 			<entry title="首页" do="home" state="" direct="false" />
