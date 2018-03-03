@@ -3,7 +3,7 @@ global $_W, $_GPC;
 
 $fs = getChildren(0);
 foreach ($fs as &$f) {
-    $cs = getChildren($fid);
+    $cs = getChildren($f['id']);
     foreach ($cs as &$c) {
         $c['items'] = getGroupGoods($c['id']);
     }
@@ -11,6 +11,7 @@ foreach ($fs as &$f) {
     $f['items'] = $cs;
 }
 unset($f);
+
 if (DEBUG) {
     $file = IA_ROOT . "/addons/shibida_mshoper/template/mobile/assets/getgroupgoods.json";
     file_put_contents($file, json_encode($list));

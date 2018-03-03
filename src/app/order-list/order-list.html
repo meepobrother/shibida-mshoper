@@ -1,5 +1,14 @@
 <ul *ngIf="list.length>0">
-    <li *ngFor="let item of list">{{item|json}}</li>
+    <li *ngFor="let item of list">
+        <div class="car-info">
+            {{item.car.car_num}}
+            {{item.car.realname}}
+            {{item.car.mobile}}
+        </div>
+        <div class="car-checks"></div>
+        <div class="car-goods"></div>
+        <div class="car-services"></div>
+    </li>
 </ul>
 <div *ngIf="list.length==0" class="empty">
     尚无数据&nbsp;

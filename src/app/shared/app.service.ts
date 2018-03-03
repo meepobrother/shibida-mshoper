@@ -29,7 +29,8 @@ export class AppService {
             needXiche: 0,
             services: [],
             employers: [],
-            message: ['']
+            message: [''],
+            tid: [this.guid()]
         });
         let values = localStorage.getItem('shibida:form');
         if (values) {
@@ -42,6 +43,21 @@ export class AppService {
             console.log(res);
             localStorage.setItem('shibida:form', JSON.stringify(res));
         });
+    }
+
+    guid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
+    initForm() {
+
+    }
+
+    refreshForm(){
+
     }
 
     back() {

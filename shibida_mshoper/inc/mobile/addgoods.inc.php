@@ -12,13 +12,17 @@ $group['desc'] = trim($input['desc']);
 $group['content'] = trim($input['content']);
 $group['tag'] = trim($input['tag']);
 $group['create_time'] = time();
-$group['displayorder'] = intval($input['displayorder']);
+// $group['displayorder'] = intval($input['displayorder']);
 $group['count'] = intval($input['count']);
 $group['price'] = floatval($input['price']);
 $group['setting'] = serialize($input['setting']);
 $group['shop_id'] = intval($input['shop_id']);
 $group['group_id'] = intval($input['group_id']);
 $group['thumbs'] = serialize($input['thumbs']);
+
+
+// ini_set('display_errors', true);
+// error_reporting(E_ALL);
 
 if(pdo_insert('shibida_shops_goods', $group)){
     $data['status'] = 0;

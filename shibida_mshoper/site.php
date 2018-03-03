@@ -7,6 +7,9 @@
  */
 defined('IN_IA') or exit('Access Denied');
 define("DEBUG", true);
+
+
+
 class Shibida_mshoperModuleSite extends WeModuleSite
 {
     private function checkMobileDo($do)
@@ -16,6 +19,16 @@ class Shibida_mshoperModuleSite extends WeModuleSite
             header("Location:".$url);
             exit();
         }
+    }
+    public function doMobileserviceGroupAdd(){
+        global $_W, $_GPC;
+        $this->checkMobileDo('serviceGroupAdd');
+        include $this->template('index');
+    }
+    public function doMobileserviceAdd(){
+        global $_W, $_GPC;
+        $this->checkMobileDo('serviceAdd');
+        include $this->template('index');
     }
     public function doMobileEmployerAdd()
     {

@@ -3,7 +3,7 @@
 	<application setting="false">
 		<name><![CDATA[汽修门店管理端]]></name>
 		<identifie><![CDATA[shibida_mshoper]]></identifie>
-		<version><![CDATA[1.9]]></version>
+		<version><![CDATA[2.3]]></version>
 		<type><![CDATA[business]]></type>
 		<ability><![CDATA[汽修门店管理端]]></ability>
 		<description><![CDATA[汽修门店管理端]]></description>
@@ -37,7 +37,15 @@
 			<entry title="财务报表" do="money" state="" direct="false" />
 			<entry title="数据分析" do="ansyc" state="" direct="false" />
 			<entry title="员工分红" do="bonus" state="" direct="false" />
-			<entry title="会员服务" do="service" state="" direct="false" />
+
+			<entry title="工时服务" do="service" state="" direct="false" />
+			<entry title="添加服务" do="serviceAdd" state="" direct="false" />
+			<entry title="服务分类" do="serviceGroupAdd" state="" direct="false" />
+
+			<entry title="商品管理" do="goods" state="" direct="false" />
+			<entry title="添加分类" do="goodsAdd" state="" direct="false" />
+			<entry title="商品分类" do="goodsGroupAdd" state="" direct="false" />
+			
 			<entry title="客户预约" do="coach" state="" direct="false" />
 			<entry title="提醒待办" do="message" state="" direct="false" />
 			<entry title="添加员工" do="employerAdd" state="" direct="false" />

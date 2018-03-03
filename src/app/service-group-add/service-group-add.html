@@ -1,0 +1,40 @@
+<div class="form-row" [formGroup]="form">
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">显示顺序</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" formControlName="displayorder" type="number" placeholder="请输入显示顺序">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">分类名</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" formControlName="title" type="text" placeholder="请输入分类名">
+        </div>
+    </div>
+    <div class="weui-cell">
+        <div class="weui-cell__hd">
+            <label class="weui-label">备注</label>
+        </div>
+        <div class="weui-cell__bd">
+            <input class="weui-input" formControlName="desc" type="text" placeholder="请输入备注">
+        </div>
+    </div>
+    <div class="weui-cell weui-cell_select weui-cell_select-after">
+        <div class="weui-cell__hd">
+            <label for="" class="weui-label">上级分类</label>
+        </div>
+        <div class="weui-cell__bd">
+            <select class="weui-select" formControlName="fid">
+                <option value="0">无</option>
+                <option [attr.value]="item.id" *ngFor="let item of list">{{item.title}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:" (click)="save()">确定</a>
+</div>

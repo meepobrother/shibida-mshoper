@@ -21,7 +21,7 @@ export class MemberPage implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get(this.app.getUrl('member')).subscribe((res: any[]) => {
+        this.http.get(this.app.getMobileUrl('member')).subscribe((res: any[]) => {
             this.allList = res;
             this.onScrollUp();
             console.log(this.allList);

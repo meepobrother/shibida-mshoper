@@ -1,24 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { We7RouterService } from 'meepo-we7-router';
 import { HttpClient } from '@angular/common/http';
 import { AppService } from '../shared/app.service';
-import { We7RouterService } from 'meepo-we7-router';
-
 @Component({
     selector: 'service-page',
-    templateUrl: 'service-page.html',
+    templateUrl: './service-page.html',
     styleUrls: ['./service-page.scss']
 })
 export class ServicePage implements OnInit {
-    goods: any[] = [
-        { title: '测试一', items: [] }
-    ];
     goodActive: any;
+    goodsSelects: any[] = [];
+    goods: any[] = [];
+    isBilling: boolean = false;
     constructor(
-        public http: HttpClient,
         public router: We7RouterService,
+        public http: HttpClient,
         public app: AppService
     ) { }
-    ngOnInit() { 
+
+    ngOnInit() {
         const url = this.app.getMobileUrl('getgroupservice');
         this.http.get(url).subscribe((res: any) => {
             this.goods = res;
@@ -37,6 +37,7 @@ export class ServicePage implements OnInit {
                 }
             }
         });
+        this.isBilling = this.router.get('billing') === 'true';
     }
 
     onItem(item: any) {
@@ -47,7 +48,20 @@ export class ServicePage implements OnInit {
         item.active = true;
     }
 
+    selectGoods(item: any) {
+        this.goodsSelects.push(item);
+    }
+
     next() {
-        this.router.go('billing', {});
+        this.app.form.get('services').setValue(this.goodsSelects);
+        this.router.go('billing', { cacheId: 'goods' });
+    }
+
+    addGroup() {
+        this.router.go('serviceGroupAdd', {});
+    }
+
+    addGoods(group_id) {
+        this.router.go('serviceAdd', { groupId: group_id });
     }
 }

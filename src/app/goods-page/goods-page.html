@@ -11,10 +11,10 @@
         </div>
         <div class="goods-results">
             <ul class="goods-container" *ngFor="let item of goodActive.items">
-                <li>
-                    <h4>{{item.title}}</h4>
+                <li style="width: 100%;">
+                    <h4>{{item.title}}<a href="javascript:;" (click)="addGoods(item.id)">添加</a></h4>
                     <ul class="goods-item">
-                        <li (click)="selectGoods(good)" *ngFor="let good of item.goods">
+                        <li (click)="selectGoods(good)" *ngFor="let good of item.items">
                             <div class="good-title">{{good.title}}</div>
                             <div class="good-price">{{good.price||'0.00'}}</div>
                             <num-input></num-input>

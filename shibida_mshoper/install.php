@@ -83,14 +83,13 @@ $sql = "DROP TABLE IF EXISTS ".tablename('shibida_service').";
 CREATE TABLE ".tablename('shibida_service')." (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uniacid` int(11) DEFAULT '0',
-  `mid` int(11) DEFAULT '0' COMMENT '店铺',
   `title` varchar(320) DEFAULT '‘’',
   `desc` varchar(320) DEFAULT '‘’',
   `price` decimal(10,2) DEFAULT '0.00',
-  `class_id` int(11) DEFAULT '0',
+  `group_id` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `uniacid` (`uniacid`),
-  KEY `class_id` (`class_id`)
+  KEY `class_id` (`group_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 ";
 
@@ -100,13 +99,41 @@ $sql = "DROP TABLE IF EXISTS ".tablename('shibida_service_group').";
 CREATE TABLE ".tablename('shibida_service_group')." (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `uniacid` int(11) DEFAULT '0',
-  `create_time` int(11) DEFAULT '0',
   `title` varchar(32) DEFAULT '',
   `fid` int(11) DEFAULT '0',
   `logo` varchar(320) DEFAULT '',
-  `danger_num` int(11) DEFAULT '0',
+  `displayorder` int(11) DEFAULT '0',
+  `desc` varchar(320) DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `uniacid` (`uniacid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+
+pdo_query($sql);
+
+
+$sql = "DROP TABLE IF EXISTS ".tablename('shibida_order').";
+CREATE TABLE ".tablename('shibida_order')." (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) DEFAULT '0',
+  `title` varchar(64) DEFAULT '',
+  `desc` varchar(320) DEFAULT '',
+  `dis_fee` decimal(10,2) DEFAULT '0.00',
+  `create_time` int(11) DEFAULT '0',
+  `year` varchar(64) DEFAULT '',
+  `month` varchar(64) DEFAULT '',
+  `week` varchar(64) DEFAULT '',
+  `day` varchar(64) DEFAULT '',
+  `shop_id` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `car_id` int(11) NOT NULL DEFAULT '0',
+  `car` text NOT NULL,
+  `checks` text NOT NULL,
+  `services` text NOT NULL,
+  `goods` text NOT NULL,
+  `emplyers` text NOT NULL,
+  `fee` decimal(10,2) NOT NULL DEFAULT '0.00',
+  PRIMARY KEY (`id`),
+  KEY `uniacid` (`uniacid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;";
 
 pdo_query($sql);

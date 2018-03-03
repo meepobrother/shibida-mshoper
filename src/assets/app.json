@@ -61,16 +61,6 @@
                 "do": "ansyc"
             },
             {
-                "title": "财务报表",
-                "icon": "ion-ios-glasses-outline",
-                "do": "money"
-            },
-            {
-                "title": "营业汇总",
-                "icon": "ion-ios-pulse-strong",
-                "do": "total"
-            },
-            {
                 "title": "业绩查询",
                 "icon": "ion-ios-analytics-outline",
                 "do": "yeji"

@@ -36,6 +36,7 @@
     background: #f3f3f3;
     padding: 0px 10px;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     .goods-search {
         height: 44px;
         display: flex;
@@ -54,6 +55,7 @@
         flex: 1;
         overflow: auto;
         max-height: calc(100% - 44px);
+        -webkit-overflow-scrolling: touch;
     }
     h4 {
         font-size: 12px;
@@ -62,11 +64,15 @@
         line-height: 1em;
         font-weight: bold;
         color: #080808;
+        a {
+            float: right;
+        }
     }
     ul.goods-container {
         list-style: none;
         flex: 1;
         overflow: auto;
+        -webkit-overflow-scrolling: touch;
         li {
             height: auto;
         }
@@ -79,14 +85,13 @@
         padding: 7px 0px 7px 0px;
         li {
             background: #fff;
-            width: 33.333%;
-            height: 100px;
-            text-align: center;
+            width: 100%;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            padding: 0 10px;
+            margin-bottom: 2px;
             .good-num {
                 font-size: 20px;
             }
@@ -97,6 +102,10 @@
             .good-price {
                 color: red;
                 font-size: 12px;
+            }
+            num-input {
+                position: absolute;
+                right: 10px;
             }
         }
     }
@@ -151,5 +160,6 @@
     .slide-nav {
         width: 80px;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 }

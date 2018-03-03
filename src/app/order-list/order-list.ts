@@ -21,7 +21,7 @@ export class OrderListPage implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get(this.app.getUrl('getorderlist')).subscribe((res: any[]) => {
+        this.http.get(this.app.getMobileUrl('getorderlist')).subscribe((res: any[]) => {
             this.allList = res;
             this.onScrollUp();
         });

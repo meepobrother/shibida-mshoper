@@ -31,6 +31,9 @@ import { EmployerPage } from './employer-page/employer-page';
 import { EmployerAddPage } from './employer-add/employer-add';
 
 import { GoodsGroupAddPage } from './goods-group-add/goods-group-add';
+import { GoodsAddPage } from './goods-add/goods-add';
+import { ServiceAddPage } from './service-add/service-add';
+import { ServiceGroupAddPage } from './service-group-add/service-group-add';
 
 export const routes = [{
     path: 'login',
@@ -132,6 +135,18 @@ export const routes = [{
     path: 'goodsGroupAdd',
     component: GoodsGroupAddPage,
     login: true
+},{
+    path: 'goodsAdd',
+    component: GoodsAddPage,
+    login: true
+},{
+    path: 'serviceAdd',
+    component: ServiceAddPage,
+    login: true
+},{
+    path: 'serviceGroupAdd',
+    component: ServiceGroupAddPage,
+    login: true
 }];
 
 export const components = [
@@ -158,5 +173,8 @@ export const components = [
     PaiPage,
     EmployerPage,
     EmployerAddPage,
-    GoodsGroupAddPage
+    GoodsGroupAddPage,
+    GoodsAddPage,
+    ServiceAddPage,
+    ServiceGroupAddPage
 ];

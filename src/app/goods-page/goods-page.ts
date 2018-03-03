@@ -60,4 +60,9 @@ export class GoodsPage implements OnInit {
     addGroup() {
         this.router.go('goodsGroupAdd', {});
     }
+
+    addGoods(group_id) {
+        console.log(group_id);
+        this.router.go('goodsAdd', { groupId: group_id });
+    }
 }

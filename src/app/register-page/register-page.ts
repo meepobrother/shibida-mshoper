@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../shared/app.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { We7RouterService } from 'meepo-we7-router';
+
 @Component({
     selector: 'register-page',
     templateUrl: 'register-page.html',
@@ -12,7 +14,8 @@ export class RegisterPage implements OnInit {
     constructor(
         public app: AppService,
         public http: HttpClient,
-        public fb: FormBuilder
+        public fb: FormBuilder,
+        public router: We7RouterService
     ) { 
         this.form = this.fb.group({
             title: '',
@@ -31,7 +34,7 @@ export class RegisterPage implements OnInit {
     register(){
         const url = this.app.getMobileUrl('doRegister');
         this.http.post(url, this.form.value).subscribe(res => {
-            console.log(res);
+            this.router.go('login');
         });
     }
 }
