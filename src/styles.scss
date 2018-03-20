@@ -101,3 +101,14 @@ we7-router-outlet {
     -webkit-overflow-scrolling: touch;
     height: 100%;
 }
+
+.ion-page,
+.ion-app {
+    opacity: 0;
+    display: none;
+}
+
+.show-page {
+    opacity: 1;
+    display: flex;
+}

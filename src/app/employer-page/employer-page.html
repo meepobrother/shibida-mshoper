@@ -1,20 +1,29 @@
-<div class="app-header">
-    <div class="app-header-left" (click)="home()">首页</div>
-    <h2 class="title">店铺员工</h2>
-    <div class="app-header-right" (click)="billing()">开单</div>
-</div>
-<div class="app-content">
-    <ul>
-        <li *ngFor="let item of list">
-            {{item.realname || item.nickname}}
-            <small>{{item.mobile}}</small>
-        </li>
-    </ul>
-    <div *ngIf="list.length==0" class="empty">
-        尚无数据&nbsp;
-        <a href="javascript:;" (click)="add()">立即添加</a>
-    </div>
-</div>
-<div class="weui-btn-area">
-    <a class="weui-btn weui-btn_primary" (click)="add()" href="javascript:">添加员工</a>
-</div>
+<ion-app>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-button fill="clear" icon-only (click)="home()">
+                    <ion-icon name="contact"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-searchbar placeholder="输入姓名" (ionInput)="getItems($event)"></ion-searchbar>
+            <ion-buttons slot="end">
+                <ion-button fill="clear" icon-only (click)="billing()">
+                    <ion-icon name="search"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-item-group>
+            <ion-item-divider color="light">A</ion-item-divider>
+            <ion-item *ngFor="let item of list">
+                {{item.realname || item.nickname}}
+            </ion-item>
+        </ion-item-group>
+        <div class="weui-btn-area">
+            <a class="weui-btn weui-btn_primary" (click)="add()" href="javascript:">添加员工</a>
+        </div>
+        <footer [props]="app.props.footers"></footer>
+    </ion-content>
+</ion-app>

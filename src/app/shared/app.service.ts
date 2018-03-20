@@ -73,10 +73,10 @@ export class AppService {
         if (isDevMode()) {
             url = `./assets/${_do}.json?t=` + new Date().getTime();
         } else {
-            // url = this.router.puts({
-            //     do: _do,
-            //     ...params
-            // });
+            url = this.router.puts({
+                do: _do,
+                ...params
+            });
         }
         return url;
     }

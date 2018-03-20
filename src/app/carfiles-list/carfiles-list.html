@@ -1,17 +1,16 @@
-<div class="header-search">
-    <div class="header-search-container">
-        <input type="text" placeholder="搜索车牌、姓名、手机号">
-    </div>
-    <div class="header-qrcode-scan">
-        <i class="ion-qr-scanner"></i>
-    </div>
-</div>
-<ul>
-    <li *ngFor="let item of list">
-        {{item.car_num}}
-        {{item.realname}}
-        {{item.mobile}}
-    </li>
-</ul>
-
-<footer [props]="app.props.footers"></footer>
+<ion-app>
+    <ion-header>
+        <ion-toolbar>
+            <ion-searchbar placeholder="搜索车牌号" (ionInput)="getItems($event)"></ion-searchbar>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-item-group>
+            <ion-item-divider color="light">A</ion-item-divider>
+            <ion-item *ngFor="let item of list">
+                {{item.car_num}}
+            </ion-item>
+        </ion-item-group>
+        <footer [props]="app.props.footers"></footer>
+    </ion-content>
+</ion-app>

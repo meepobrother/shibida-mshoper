@@ -13,14 +13,15 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     direction: 'horizontal',
     slidesPerView: 'auto'
 };
-
+import { We7IonicModule } from 'we7-ionic';
 @NgModule({
     imports: [
         SwiperModule,
         InfiniteScrollModule,
         ReactiveFormsModule,
         FormsModule,
-        RouterModule
+        RouterModule,
+        We7IonicModule.forRoot()
     ],
     exports: [
         SwiperModule,
@@ -29,7 +30,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         We7ImgDirective,
         ReactiveFormsModule,
         FormsModule,
-        NumInput
+        NumInput,
+        We7IonicModule
     ],
     declarations: [
         FooterComponent,

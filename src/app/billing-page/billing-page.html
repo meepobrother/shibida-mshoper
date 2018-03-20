@@ -1,77 +1,79 @@
-<div class="app-content" [formGroup]="app.form">
-    <div class="form-row">
-        <a class="weui-cell weui-cell_access" (click)="addOrEditCar()" href="javascript:;">
-            <div class="weui-cell__bd">
-                <p>车辆信息</p>
+<ion-app>
+    <ion-content>
+        <div class="app-content" [formGroup]="app.form">
+            <div class="form-row">
+                <a class="weui-cell weui-cell_access" (click)="addOrEditCar()" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>车辆信息</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        {{data.carNum || '添加'}}
+                    </div>
+                </a>
             </div>
-            <div class="weui-cell__ft">
-                {{data.carNum || '添加'}}
+            <div class="form-row">
+                <a class="weui-cell weui-cell_access" (click)="addCarCheck()" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>车检报告</p>
+                    </div>
+                    <div class="weui-cell__ft" *ngIf="data.carCheck">修改</div>
+                    <div class="weui-cell__ft" *ngIf="!data.carCheck">添加</div>
+                </a>
             </div>
-        </a>
-    </div>
+            <div class="form-row">
+                <div class="weui-cell weui-cell_select weui-cell_select-after">
+                    <div class="weui-cell__hd">
+                        <label for="" class="weui-label">需要洗车</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <select class="weui-select" formControlName="needXiche">
+                            <option value="0">不需要</option>
+                            <option value="1">需要</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
-    <div class="form-row">
-        <a class="weui-cell weui-cell_access" (click)="addCarCheck()" href="javascript:;">
-            <div class="weui-cell__bd">
-                <p>车检报告</p>
+            <div class="form-row">
+                <a class="weui-cell weui-cell_access" (click)="addGoods()" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>更换零件</p>
+                    </div>
+                    <div class="weui-cell__ft">
+                        添加
+                    </div>
+                </a>
             </div>
-            <div class="weui-cell__ft" *ngIf="data.carCheck">修改</div>
-            <div class="weui-cell__ft" *ngIf="!data.carCheck">添加</div>
-        </a>
-    </div>
 
-    <div class="form-row">
-        <div class="weui-cell weui-cell_select weui-cell_select-after">
-            <div class="weui-cell__hd">
-                <label for="" class="weui-label">需要洗车</label>
+            <div class="form-row">
+                <a class="weui-cell weui-cell_access" (click)="addService()" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>工时服务</p>
+                    </div>
+                    <div class="weui-cell__ft">添加</div>
+                </a>
             </div>
-            <div class="weui-cell__bd">
-                <select class="weui-select" formControlName="needXiche">
-                    <option value="0">不需要</option>
-                    <option value="1">需要</option>
-                </select>
+
+            <div class="form-row">
+                <a class="weui-cell weui-cell_access" (click)="addPai()" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p>工单指派</p>
+                    </div>
+                    <div class="weui-cell__ft">指派</div>
+                </a>
             </div>
+
+            <div class="form-row">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <textarea class="weui-textarea" formControlName="message" placeholder="请输入文本留言" rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="button-sp-area">
+                <a href="javascript:;" class="weui-btn weui-btn_warn" (click)="post()">开单</a>
+            </div>
+            <footer [props]="app.props.footers"></footer>
         </div>
-    </div>
-
-    <div class="form-row">
-        <a class="weui-cell weui-cell_access" (click)="addGoods()" href="javascript:;">
-            <div class="weui-cell__bd">
-                <p>更换零件</p>
-            </div>
-            <div class="weui-cell__ft">
-                添加
-            </div>
-        </a>
-    </div>
-
-    <div class="form-row">
-        <a class="weui-cell weui-cell_access" (click)="addService()" href="javascript:;">
-            <div class="weui-cell__bd">
-                <p>工时服务</p>
-            </div>
-            <div class="weui-cell__ft">添加</div>
-        </a>
-    </div>
-
-    <div class="form-row">
-        <a class="weui-cell weui-cell_access" (click)="addPai()" href="javascript:;">
-            <div class="weui-cell__bd">
-                <p>工单指派</p>
-            </div>
-            <div class="weui-cell__ft">指派</div>
-        </a>
-    </div>
-
-    <div class="form-row">
-        <div class="weui-cell">
-            <div class="weui-cell__bd">
-                <textarea class="weui-textarea" formControlName="message" placeholder="请输入文本留言" rows="3"></textarea>
-            </div>
-        </div>
-    </div>
-    <div class="button-sp-area" >
-        <a href="javascript:;" class="weui-btn weui-btn_warn" (click)="post()">开单</a>
-    </div>
-    <footer [props]="app.props.footers"></footer>
-</div>
+    </ion-content>
+</ion-app>

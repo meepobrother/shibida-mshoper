@@ -37,7 +37,7 @@ export class CarNumPage implements OnInit {
     ) { }
 
     ngOnInit() {
-        let carNum = decodeURI(this.router.get('carNum'));
+        let carNum = decodeURI(this.router.get('carNum') || '');
         if (!carNum) {
             carNum = '';
         }

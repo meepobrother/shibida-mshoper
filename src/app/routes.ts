@@ -179,17 +179,19 @@ export const components = [
     ServiceGroupAddPage
 ];
 import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { We7RouterModule } from 'meepo-we7-router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { We7IonicModule } from 'we7-ionic';
 @NgModule({
     imports: [
         RouterModule.forChild(routes),
         We7RouterModule,
         HttpClientModule,
-        SharedModule
+        SharedModule,
+        We7IonicModule.forRoot()
     ],
     exports: [
         RouterModule,
@@ -197,7 +199,8 @@ import { SharedModule } from './shared/shared.module';
     ],
     declarations: [
         ...components
-    ]
+    ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class RoutesModule {
 

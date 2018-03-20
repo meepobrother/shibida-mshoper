@@ -1,25 +1,18 @@
-<div class="swiper-container" [swiper]="app.props.home.swiper.config" [(index)]="app.props.home.swiper.index">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let item of app.props.home.swiper.items">
-            <img [we7Img]="item.src">
+<ion-app>
+    <ion-content>
+        <div class="grid grid-navs">
+            <div class="grid-item" (click)="onItem(item)" *ngFor="let item of app.props.home.navs">
+                <i [class]="item.icon"></i>
+                <span>{{item.title}}</span>
+            </div>
         </div>
-    </div>
-    <div class="swiper-pagination"></div>
-</div>
-
-<hr class="mb10">
-<div class="grid grid-navs">
-    <div class="grid-item" (click)="onItem(item)" *ngFor="let item of app.props.home.navs">
-        <i [class]="item.icon"></i>
-        <span>{{item.title}}</span>
-    </div>
-</div>
-<hr class="m10">
-<div class="grid">
-    <div class="grid-item" (click)="onItem(item)" *ngFor="let item of app.props.home.grids">
-        <i [class]="item.icon"></i>
-        <span>{{item.title}}</span>
-    </div>
-</div>
-
-<footer [props]="app.props.footers"></footer>
+        <hr class="m10">
+        <div class="grid">
+            <div class="grid-item" (click)="onItem(item)" *ngFor="let item of app.props.home.grids">
+                <i [class]="item.icon"></i>
+                <span>{{item.title}}</span>
+            </div>
+        </div>
+        <footer [props]="app.props.footers"></footer>
+    </ion-content>
+</ion-app>

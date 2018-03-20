@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { We7RouterModule } from 'meepo-we7-router';
 import { AppComponent } from './app.component';
 import { RoutesModule } from './routes';
@@ -27,6 +27,7 @@ import { environment } from '../environments/environment';
     provide: UrlSerializer,
     useClass: MeepoUrlSerializer
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
