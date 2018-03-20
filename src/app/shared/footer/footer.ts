@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { We7RouterService } from 'meepo-we7-router';
+import { ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'footer',
     templateUrl: 'footer.html',
@@ -11,17 +12,8 @@ export class FooterComponent implements OnInit {
     @Output() onItem: EventEmitter<any> = new EventEmitter();
     do: string = '';
     constructor(
-        public router: We7RouterService
+        public router: We7RouterService,
+        private route: ActivatedRoute
     ) { }
-    ngOnInit() { 
-        this.do = this.router.get('do');
-    }
-    _onItem(item: any) {
-        this.props.map(item => {
-            item.on = false;
-        });
-        item.on = true;
-        this.onItem.emit(item);
-        this.router.go(item.do, item.params);
-    }
+    ngOnInit() { }
 }

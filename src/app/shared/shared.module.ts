@@ -7,6 +7,7 @@ import { SwiperModule, SWIPER_CONFIG, SwiperConfigInterface } from 'ngx-swiper-w
 import { AppService } from './app.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     direction: 'horizontal',
@@ -18,7 +19,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         SwiperModule,
         InfiniteScrollModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        RouterModule
     ],
     exports: [
         SwiperModule,

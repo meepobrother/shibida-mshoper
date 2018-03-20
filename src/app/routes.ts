@@ -131,19 +131,19 @@ export const routes = [{
     path: 'employerAdd',
     component: EmployerAddPage,
     login: true
-},{
+}, {
     path: 'goodsGroupAdd',
     component: GoodsGroupAddPage,
     login: true
-},{
+}, {
     path: 'goodsAdd',
     component: GoodsAddPage,
     login: true
-},{
+}, {
     path: 'serviceAdd',
     component: ServiceAddPage,
     login: true
-},{
+}, {
     path: 'serviceGroupAdd',
     component: ServiceGroupAddPage,
     login: true
@@ -178,3 +178,27 @@ export const components = [
     ServiceAddPage,
     ServiceGroupAddPage
 ];
+import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { We7RouterModule } from 'meepo-we7-router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+@NgModule({
+    imports: [
+        RouterModule.forChild(routes),
+        We7RouterModule,
+        HttpClientModule,
+        SharedModule
+    ],
+    exports: [
+        RouterModule,
+        ...components
+    ],
+    declarations: [
+        ...components
+    ]
+})
+export class RoutesModule {
+
+}

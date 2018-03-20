@@ -2,25 +2,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { We7RouterModule } from 'meepo-we7-router';
 import { AppComponent } from './app.component';
-import { routes, components } from './routes';
+import { RoutesModule } from './routes';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MeepoUrlSerializer } from 'we7-router';
+import { UrlSerializer, RouterModule } from '@angular/router';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
-    ...components
   ],
   imports: [
     BrowserModule,
-    We7RouterModule.forRoot(routes),
+    RouterModule.forRoot([{
+      path: 'app/entry/site/shibida_mshoper',
+      loadChildren: 'app/routes#RoutesModule'
+    }]),
+    We7RouterModule.forRoot(environment),
     SharedModule,
     HttpClientModule
   ],
-  entryComponents: [
-    ...components
-  ],
-  providers: [],
+  entryComponents: [],
+  providers: [{
+    provide: UrlSerializer,
+    useClass: MeepoUrlSerializer
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

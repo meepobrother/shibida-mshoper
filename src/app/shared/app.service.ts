@@ -6,7 +6,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Injectable()
 export class AppService {
-    props: any;
+    props: any = {
+        home: {
+            swiper: {}
+        }
+    };
     version: string = '1.0.4';
     form: FormGroup;
     constructor(
@@ -69,10 +73,10 @@ export class AppService {
         if (isDevMode()) {
             url = `./assets/${_do}.json?t=` + new Date().getTime();
         } else {
-            url = this.router.puts({
-                do: _do,
-                ...params
-            });
+            // url = this.router.puts({
+            //     do: _do,
+            //     ...params
+            // });
         }
         return url;
     }

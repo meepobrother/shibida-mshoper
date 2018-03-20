@@ -8,8 +8,6 @@
 defined('IN_IA') or exit('Access Denied');
 define("DEBUG", true);
 
-
-
 class Shibida_mshoperModuleSite extends WeModuleSite
 {
     private function checkMobileDo($do)
