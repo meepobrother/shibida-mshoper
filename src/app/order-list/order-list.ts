@@ -57,4 +57,14 @@ export class OrderListPage implements OnInit {
     getItems(e: any) {
         let value = e.target.value;
     }
+
+    call(m: string) {
+        location.href = `tel:${m}`;
+    }
+
+    editOrder(item) {
+        console.log(item);
+        this.app.refreshForm(item);
+        this.router.go('billing');
+    }
 }

@@ -18,6 +18,11 @@ export class BillingPage implements OnInit {
         public fb: FormBuilder
     ) { }
 
+    clearCache() {
+        localStorage.removeItem('shibida:form');
+        this.app.initForm();
+    }
+
     ngOnInit() {
         this.data.carNum = decodeURI(this.router.get('carNum'));
         this.data.carId = decodeURI(this.router.get('carId'));
@@ -78,7 +83,7 @@ export class BillingPage implements OnInit {
     }
 
     post() {
-        let url = this.app.getMobileUrl('open',{
+        let url = this.app.getMobileUrl('open', {
             open: 'shibida/order/add',
             m: 'runner_open'
         });

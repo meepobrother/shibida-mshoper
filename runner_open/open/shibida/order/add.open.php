@@ -21,10 +21,11 @@ $group['dis_fee'] = floatval($input['dis_fee']);
 
 $group['shop_id'] = $_SESSION['shop_id'];
 $group['status'] = 0;
-$group['car_id'] = $input['car']['id'];
+$group['car_id'] = $input['car_id'];
 
 $group['checks'] = serialize($input['check']);
-$group['car'] = serialize($input['car']);
+$car = pdo_get('shibida_carfiles', array('id' => $group['car_id']));
+$group['car'] = serialize($car);
 $group['services'] = serialize($input['services']);
 $group['goods'] = serialize($input['goods']);
 $group['emplyers'] = serialize($input['emplyers']);

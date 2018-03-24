@@ -59,11 +59,23 @@ export class AppService {
     }
 
     initForm() {
-
+        this.form = this.fb.group({
+            car_num: '',
+            car_id: '',
+            check: [],
+            goods: [],
+            needXiche: '0',
+            services: [],
+            employers: [],
+            message: [''],
+            tid: [this.guid()],
+            price: [0]
+        });
     }
 
-    refreshForm() {
-
+    refreshForm(form: any) {
+        this.form.patchValue(form);
+        console.log(this.form.value);
     }
 
     back() {

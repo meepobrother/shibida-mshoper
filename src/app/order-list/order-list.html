@@ -8,14 +8,18 @@
     <ion-content>
         <ion-card *ngFor="let item of list">
             <ion-item>
-                <ion-icon name="football" item-start large></ion-icon>
-                <h2>{{item.car.car_num}}</h2>
-                <p>{{item.car.realname}}{{item.car.mobile}}</p>
+                车牌号:&nbsp;
+                <p>{{item.car?.car_num}}</p>
+                <ion-button fill="clear" slot="end" (click)="editOrder(item)">
+                    修改
+                </ion-button>
             </ion-item>
-            <ion-item>
-                <ion-icon name="wine" item-left large></ion-icon>
-                <h2>{{item.car.realname}}</h2>
-                <p>{{item.car.mobile}}</p>
+            <ion-item detail="true">
+                <span slot="start">{{item.car?.realname}}</span>
+                <span slot="start">({{item.car?.mobile}})</span>
+                <ion-button fill="clear" slot="end" (click)="call(item.car.mobile)">
+                    <i slot="start" class="ion ion-ios-telephone"></i>呼叫
+                </ion-button>
             </ion-item>
             <ion-item detail="true">
                 <span slot="start">18 min</span>
