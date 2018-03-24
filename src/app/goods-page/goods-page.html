@@ -1,35 +1,55 @@
-<div class="goods-container">
-    <div class="slide-nav">
-        <ul>
-            <li [class.active]="item.active" (click)="onItem(item)" *ngFor="let item of goods">{{item.title}}</li>
-            <li style="background: gray;color: #fff;" (click)="addGroup()">添加</li>
-        </ul>
-    </div>
-    <div class="slide-content" *ngIf="goodActive">
-        <div class="goods-search">
-            <input type="text" placeholder="请输入查询关键字">
-        </div>
-        <div class="goods-results">
-            <ul class="goods-container" *ngFor="let item of goodActive.items">
-                <li style="width: 100%;">
-                    <h4>{{item.title}}<a href="javascript:;" (click)="addGoods(item.id)">添加</a></h4>
-                    <ul class="goods-item">
-                        <li (click)="selectGoods(good)" *ngFor="let good of item.items">
-                            <div class="good-title">{{good.title}}</div>
-                            <div class="good-price">{{good.price||'0.00'}}</div>
-                            <num-input></num-input>
+<ion-app>
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-buttons slot="start">
+                <ion-button (click)="back()" fill="clear">
+                    <i class="ion ion-ios-arrow-left"></i>
+                    返回
+                </ion-button>
+            </ion-buttons>
+            <ion-title>零部件</ion-title>
+            <ion-buttons slot="end">
+                <ion-button (click)="addGoods(0)">添加</ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <div class="goods-container">
+            <div class="slide-nav">
+                <ul>
+                    <li [class.active]="item.active" (click)="onItem(item)" *ngFor="let item of goods">{{item.title}}</li>
+                    <li style="background: gray;color: #fff;" (click)="addGroup()">添加</li>
+                </ul>
+            </div>
+            <div class="slide-content" *ngIf="goodActive">
+                <div class="goods-search">
+                    <input type="text" placeholder="请输入查询关键字">
+                </div>
+                <div class="goods-results">
+                    <ul class="goods-container" *ngFor="let item of goodActive.items">
+                        <li style="width: 100%;">
+                            <h4>{{item.title}}
+                                <a href="javascript:;" (click)="addGoods(item.id)">添加</a>
+                            </h4>
+                            <ul class="goods-item">
+                                <li (click)="selectGoods(good)" *ngFor="let good of item.items">
+                                    <div class="good-title">{{good.title || '未知'}}</div>
+                                    <div class="good-price">{{good.price||'0.00'}}元</div>
+                                    <num-input [num]="good.num || 0" (numChange)="addToCat($event,good)"></num-input>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<div class="goods-footer" *ngIf="isBilling">
-    <div class="goods-footer-left">
-
-    </div>
-    <div class="goods-footer-right" (click)="next()">
-        下一步
-    </div>
-</div>
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar color="dark">
+            <div class="info">{{info}}</div>
+            <ion-buttons slot="end">
+                <ion-button (click)="next()">下一步</ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-footer>
+</ion-app>

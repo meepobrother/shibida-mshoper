@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FooterComponent } from './footer/footer';
+import { FooterContainer } from './footer/footer-container/footer-container';
+
 import { NumInput } from './num-input/num-input';
 
 import { We7ImgDirective } from './we7-img/we7-img';
@@ -31,12 +33,14 @@ import { We7IonicModule } from 'we7-ionic';
         ReactiveFormsModule,
         FormsModule,
         NumInput,
-        We7IonicModule
+        We7IonicModule,
+        FooterContainer
     ],
     declarations: [
         FooterComponent,
         We7ImgDirective,
-        NumInput
+        NumInput,
+        FooterContainer
     ],
     providers: [
         {

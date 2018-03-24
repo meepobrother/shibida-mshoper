@@ -24,12 +24,15 @@ export class CarAddPage implements OnInit {
             jarNum: '',
             licheng: '',
             realname: '',
-            mobile: ''
+            mobile: '',
+            car_pre: ''
         });
     }
 
     ngOnInit() {
-        this.form.get('carNum').setValue(decodeURI(this.router.get('carNum')));
+        const carNum = decodeURI(this.router.get('carNum'));
+        this.form.get('carNum').setValue(carNum);
+        this.form.get('car_pre').setValue(carNum.slice(0, 1));
     }
 
     cancel() {
@@ -37,15 +40,14 @@ export class CarAddPage implements OnInit {
     }
 
     private postToSave() {
-        const url = this.app.getMobileUrl('postCarAdd', {});
+        const url = this.app.getMobileUrl('open', {
+            open: 'shibida/car/add',
+            m: 'runner_open'
+        });
         return this.http.post(url, this.form.value)
     }
 
     save() {
-        if (isDevMode()) {
-            this.router.go('home', { carId: '1' });
-            return;
-        }
         this.postToSave().subscribe((res: any) => {
             if (res.status === 0) {
                 const { data } = res;
@@ -58,10 +60,6 @@ export class CarAddPage implements OnInit {
     }
 
     add() {
-        if (isDevMode()) {
-            this.router.go('billing', { carId: '1' });
-            return;
-        }
         this.postToSave().subscribe((res: any) => {
             if (res.status === 0) {
                 const { data } = res;
@@ -70,6 +68,12 @@ export class CarAddPage implements OnInit {
             } else {
                 console.log(res);
             }
+        });
+    }
+
+    back() {
+        this.router.go('billing', {
+            carNum: this.form.get('carNum').value
         });
     }
 }

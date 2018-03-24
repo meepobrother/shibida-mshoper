@@ -21,7 +21,10 @@ export class OrderListPage implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.http.get(this.app.getMobileUrl('getorderlist')).subscribe((res: any[]) => {
+        this.http.get(this.app.getMobileUrl('open', {
+            open: 'shibida/order/list',
+            m: 'runner_open'
+        })).subscribe((res: any[]) => {
             this.allList = res;
             this.onScrollUp();
         });
@@ -49,5 +52,9 @@ export class OrderListPage implements OnInit {
 
     add() {
         this.router.go('billing');
+    }
+
+    getItems(e: any) {
+        let value = e.target.value;
     }
 }

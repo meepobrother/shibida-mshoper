@@ -19,7 +19,10 @@ export class ServicePage implements OnInit {
     ) { }
 
     ngOnInit() {
-        const url = this.app.getMobileUrl('getgroupservice');
+        const url = this.app.getMobileUrl('open', {
+            open: 'shibida/servicegroup/services',
+            m: 'runner_open'
+        });
         this.http.get(url).subscribe((res: any) => {
             this.goods = res;
             let has = false;
@@ -63,5 +66,47 @@ export class ServicePage implements OnInit {
 
     addGoods(group_id) {
         this.router.go('serviceAdd', { groupId: group_id });
+    }
+
+    info: string = '';
+    addToCat(num, good) {
+        good['num'] = num;
+        let goods = this.app.form.get('goods').value;
+        goods = goods || [];
+        let has = false;
+        let index = -1;
+        goods.map((res, i) => {
+            if (res.id === good.id) {
+                res.num = good.num;
+                index = i;
+                has = true;
+            }
+        });
+        if (!has) {
+            goods.push(good);
+        } else {
+            if (num === 0) {
+                goods.splice(index, 1)
+            }
+        }
+        this.app.form.get('goods').setValue(goods);
+    }
+
+    updateGoods() {
+        this.goodActive.items.map(item => {
+            let goods = this.app.form.get('goods').value;
+            goods = goods || [];
+            item.items.map(i => {
+                goods.map(good => {
+                    if (i.id === good.id) {
+                        i.num = good.num;
+                    }
+                });
+            });
+        });
+    }
+
+    back() {
+        this.router.go('billing');
     }
 }

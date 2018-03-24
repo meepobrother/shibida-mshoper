@@ -26,14 +26,20 @@ export class ServiceGroupAddPage implements OnInit {
     }
 
     ngOnInit() {
-        const url = this.app.getMobileUrl('gettopservicegroup');
+        const url = this.app.getMobileUrl('open', {
+            open: 'shibida/servicegroup/top',
+            m: 'runner_open'
+        });
         this.http.get(url).subscribe((res: any) => {
             this.list = res || [];
         });
     }
 
     save() {
-        let url = this.app.getMobileUrl('addservicegroup');
+        let url = this.app.getMobileUrl('open', {
+            open: 'shibida/servicegroup/add',
+            m: 'runner_open'
+        });
         this.http.post(url, this.form.value).subscribe((res: any) => {
             this.list = res.list;
             this.router.go('service');

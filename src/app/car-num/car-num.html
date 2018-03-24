@@ -1,26 +1,43 @@
-<div id="container">
-    <div id="carLicenseBox">
-        <div class="carLicenseTitle">
-            请输入车牌号
+<ion-app>
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-buttons slot="start">
+                <ion-button (click)="back()" fill="clear">
+                    <i class="ion ion-ios-arrow-left"></i>
+                    返回
+                </ion-button>
+            </ion-buttons>
+            <ion-title>
+                录入车牌
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <div id="container">
+            <div id="carLicenseBox">
+                <div class="carLicenseTitle">
+                    请输入车牌号
+                </div>
+                <div class="carLicenseMain">
+                    <ul>
+                        <li [class.active]="item.active" (click)="setActive(item)" *ngFor="let item of post">{{item.title}}</li>
+                        <li class="xinnengyuan" *ngIf="!xinnengyuan" (click)="isXinNengYuan()"></li>
+                    </ul>
+                </div>
+                <button class="submitBtn" (click)="doPost()">提交</button>
+            </div>
+            <div id="keyboardBox">
+                <div class="provienceBox" *ngIf="!keyboard">
+                    <ul *ngFor="let item of proviences">
+                        <li [class]="it.class" (click)="onProvience(it)" *ngFor="let it of item" [innerHTML]="it.title"></li>
+                    </ul>
+                </div>
+                <div *ngIf="keyboard" class="textBox">
+                    <ul *ngFor="let item of list">
+                        <li [class]="it.class" (click)="onTextBox(it)" *ngFor="let it of item" [innerHTML]="it.title"></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="carLicenseMain">
-            <ul>
-                <li [class.active]="item.active" (click)="setActive(item)" *ngFor="let item of post">{{item.title}}</li>
-                <li class="xinnengyuan" *ngIf="!xinnengyuan" (click)="isXinNengYuan()"></li>
-            </ul>
-        </div>
-        <button class="submitBtn" (click)="doPost()">提交</button>
-    </div>
-    <div id="keyboardBox">
-        <div class="provienceBox" *ngIf="!keyboard">
-            <ul *ngFor="let item of proviences">
-                <li [class]="it.class" (click)="onProvience(it)" *ngFor="let it of item" [innerHTML]="it.title"></li>
-            </ul>
-        </div>
-        <div *ngIf="keyboard" class="textBox">
-            <ul *ngFor="let item of list">
-                <li [class]="it.class" (click)="onTextBox(it)" *ngFor="let it of item" [innerHTML]="it.title"></li>
-            </ul>
-        </div>
-    </div>
-</div>
+    </ion-content>
+</ion-app>

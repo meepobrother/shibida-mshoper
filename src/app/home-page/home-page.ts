@@ -25,4 +25,8 @@ export class HomePage implements OnInit {
     ngAfterViewInit() {
         console.log(this.slides);
     }
+
+    toBilling(){
+        this.router.go('billing');
+    }
 }

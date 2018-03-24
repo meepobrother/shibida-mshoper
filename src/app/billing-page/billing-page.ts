@@ -20,12 +20,20 @@ export class BillingPage implements OnInit {
 
     ngOnInit() {
         this.data.carNum = decodeURI(this.router.get('carNum'));
-        this.http.get(this.app.getUrl('carCheck', {
-            carNum: this.data.carNum
-        })).subscribe((res: any) => {
+        this.data.carId = decodeURI(this.router.get('carId'));
+        const url = this.app.getMobileUrl('open', {
+            open: 'shibida/car/check',
+            carId: this.data.carId || 0,
+            carNum: this.data.carNum || '',
+            m: 'runner_open'
+        });
+        this.http.get(url).subscribe((res: any) => {
             if (res.status === 0) {
-                const item = res.data;
-                this.app.form.get('car').setValue(item);
+                const item = res.data || { carNum: '' };
+                this.data = item;
+                this.app.form.get('car_num').setValue(item.car_num);
+                this.app.form.get('car_id').setValue(item.id);
+                this.app.form.get('tid').setValue(this.guid());
             }
         });
         this.data.carId = this.router.get('carId');
@@ -70,7 +78,10 @@ export class BillingPage implements OnInit {
     }
 
     post() {
-        let url = this.app.getMobileUrl('addorder');
+        let url = this.app.getMobileUrl('open',{
+            open: 'shibida/order/add',
+            m: 'runner_open'
+        });
         this.http.post(url, this.app.form.value).subscribe(res => {
             this.router.go('orderList');
         });

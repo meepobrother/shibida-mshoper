@@ -1,79 +1,74 @@
 <ion-app>
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>
+                开单
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
     <ion-content>
         <div class="app-content" [formGroup]="app.form">
-            <div class="form-row">
-                <a class="weui-cell weui-cell_access" (click)="addOrEditCar()" href="javascript:;">
-                    <div class="weui-cell__bd">
-                        <p>车辆信息</p>
-                    </div>
-                    <div class="weui-cell__ft">
-                        {{data.carNum || '添加'}}
-                    </div>
-                </a>
-            </div>
-            <div class="form-row">
-                <a class="weui-cell weui-cell_access" (click)="addCarCheck()" href="javascript:;">
-                    <div class="weui-cell__bd">
-                        <p>车检报告</p>
-                    </div>
-                    <div class="weui-cell__ft" *ngIf="data.carCheck">修改</div>
-                    <div class="weui-cell__ft" *ngIf="!data.carCheck">添加</div>
-                </a>
-            </div>
-            <div class="form-row">
-                <div class="weui-cell weui-cell_select weui-cell_select-after">
-                    <div class="weui-cell__hd">
-                        <label for="" class="weui-label">需要洗车</label>
-                    </div>
-                    <div class="weui-cell__bd">
-                        <select class="weui-select" formControlName="needXiche">
-                            <option value="0">不需要</option>
-                            <option value="1">需要</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <a class="weui-cell weui-cell_access" (click)="addGoods()" href="javascript:;">
-                    <div class="weui-cell__bd">
-                        <p>更换零件</p>
-                    </div>
-                    <div class="weui-cell__ft">
-                        添加
-                    </div>
-                </a>
-            </div>
-
-            <div class="form-row">
-                <a class="weui-cell weui-cell_access" (click)="addService()" href="javascript:;">
-                    <div class="weui-cell__bd">
-                        <p>工时服务</p>
-                    </div>
-                    <div class="weui-cell__ft">添加</div>
-                </a>
-            </div>
-
-            <div class="form-row">
-                <a class="weui-cell weui-cell_access" (click)="addPai()" href="javascript:;">
-                    <div class="weui-cell__bd">
-                        <p>工单指派</p>
-                    </div>
-                    <div class="weui-cell__ft">指派</div>
-                </a>
-            </div>
-
-            <div class="form-row">
+            <ion-item-divider>询问信息</ion-item-divider>
+            <ion-item-group>
+                <ion-item>
+                    <ion-label>车辆信息</ion-label>
+                    <ion-button slot="end" (click)="addOrEditCar()">{{app.form.get('car_num').value || '添加'}}</ion-button>
+                </ion-item>
+                <ion-item type="button">
+                    <ion-label>车检报告</ion-label>
+                    <ion-button slot="end" (click)="addCarCheck()">{{app.form.get('check').value ? '修改' : '添加'}}</ion-button>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-divider>是否需要洗车</ion-item-divider>
+            <ion-item-group>
+                <ion-radio-group formControlName="needXiche">
+                    <ion-item>
+                        <ion-label>需要洗车</ion-label>
+                        <ion-radio value="1"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>不需要洗车</ion-label>
+                        <ion-radio value="0"></ion-radio>
+                    </ion-item>
+                </ion-radio-group>
+            </ion-item-group>
+            <ion-item-divider>维修项目</ion-item-divider>
+            <ion-item-group>
+                <ion-item>
+                    更换零件
+                    <ion-button (click)="addGoods()" fill="clear" slot="end">
+                        {{'添加'}}
+                    </ion-button>
+                </ion-item>
+                <ion-item>
+                    工时服务
+                    <ion-button (click)="addService()" fill="clear" slot="end">
+                        {{'添加'}}
+                    </ion-button>
+                </ion-item>
+                <ion-item>
+                    派单
+                    <ion-button (click)="addPai()" fill="clear" slot="end">
+                        {{'指派'}}
+                    </ion-button>
+                </ion-item>
+            </ion-item-group>
+            <ion-item-divider>留言备注</ion-item-divider>
+            <ion-item-group>
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
                         <textarea class="weui-textarea" formControlName="message" placeholder="请输入文本留言" rows="3"></textarea>
                     </div>
                 </div>
-            </div>
+            </ion-item-group>
             <div class="button-sp-area">
-                <a href="javascript:;" class="weui-btn weui-btn_warn" (click)="post()">开单</a>
+                <a href="javascript:;" class="weui-btn weui-btn_warn" (click)="post()">立即开单</a>
             </div>
-            <footer [props]="app.props.footers"></footer>
         </div>
     </ion-content>
+    <ion-footer>
+        <ion-toolbar color="light">
+            <footer-container [props]="app.props.footers"></footer-container>
+        </ion-toolbar>
+    </ion-footer>
 </ion-app>

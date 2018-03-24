@@ -29,9 +29,16 @@ export class ServiceAddPage implements OnInit {
     }
 
     save() {
-        let url = this.app.getMobileUrl('addservice');
+        let url = this.app.getMobileUrl('open', {
+            open: 'shibida/service/add',
+            m: 'runner_open'
+        });
         this.http.post(url, this.form.value).subscribe(res => {
             this.router.go('service');
         });
+    }
+
+    back() {
+        this.router.go('billing');
     }
 }

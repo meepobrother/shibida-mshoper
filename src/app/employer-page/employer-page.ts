@@ -19,9 +19,12 @@ export class EmployerPage implements OnInit {
     ) { }
 
     ngOnInit() {
-        const url = this.app.getMobileUrl('getshopemployer');
+        const url = this.app.getMobileUrl('open',{
+            m: 'runner_open',
+            open: 'shibida/employer/list'
+        });
         this.http.get(url).subscribe((res: any) => {
-            this.list = res;
+            this.list = res || [];
         });
     }
 
@@ -39,5 +42,9 @@ export class EmployerPage implements OnInit {
 
     billing() {
         this.router.go('billing', {});
+    }
+
+    getItems(e: any){
+        const key = e.target.value;
     }
 }

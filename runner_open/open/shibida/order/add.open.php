@@ -36,6 +36,8 @@ if (pdo_insert('shibida_order', $group)) {
     $data['id'] = pdo_insertid();
     $group['id'] = $data['id'];
     $data['info'] = $group;
+} else {
+    $data['message'] = '订单编号重复';
 }
 
 die(json_encode($data));

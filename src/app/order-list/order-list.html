@@ -1,17 +1,38 @@
-<ul *ngIf="list.length>0">
-    <li *ngFor="let item of list">
-        <div class="car-info">
-            {{item.car.car_num}}
-            {{item.car.realname}}
-            {{item.car.mobile}}
+<ion-app>
+
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-searchbar placeholder="搜索车牌号" (ionInput)="getItems($event)"></ion-searchbar>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-card *ngFor="let item of list">
+            <ion-item>
+                <ion-icon name="football" item-start large></ion-icon>
+                <h2>{{item.car.car_num}}</h2>
+                <p>{{item.car.realname}}{{item.car.mobile}}</p>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="wine" item-left large></ion-icon>
+                <h2>{{item.car.realname}}</h2>
+                <p>{{item.car.mobile}}</p>
+            </ion-item>
+            <ion-item detail="true">
+                <span slot="start">18 min</span>
+                <span slot="start">(2.6 元)</span>
+                <ion-button fill="clear" slot="end">
+                    <ion-icon slot="start" name="navigate"></ion-icon>操作
+                </ion-button>
+            </ion-item>
+        </ion-card>
+        <div *ngIf="list.length==0" class="empty">
+            尚无数据&nbsp;
+            <a href="javascript:;" (click)="add()">立即添加</a>
         </div>
-        <div class="car-checks"></div>
-        <div class="car-goods"></div>
-        <div class="car-services"></div>
-    </li>
-</ul>
-<div *ngIf="list.length==0" class="empty">
-    尚无数据&nbsp;
-    <a href="javascript:;" (click)="add()">立即添加</a>
-</div>
-<footer [props]="app.props.footers"></footer>
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar color="light">
+            <footer-container [props]="app.props.footers"></footer-container>
+        </ion-toolbar>
+    </ion-footer>
+</ion-app>

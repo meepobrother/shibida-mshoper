@@ -1,16 +1,28 @@
 <ion-app>
     <ion-header>
-        <ion-toolbar>
+        <ion-toolbar color="primary">
             <ion-searchbar placeholder="搜索车牌号" (ionInput)="getItems($event)"></ion-searchbar>
         </ion-toolbar>
     </ion-header>
     <ion-content>
-        <ion-item-group>
-            <ion-item-divider color="light">A</ion-item-divider>
-            <ion-item *ngFor="let item of list">
-                {{item.car_num}}
+        <ion-item-group *ngFor="let item of list;">
+            <ion-item-divider color="light">{{item.first}}</ion-item-divider>
+            <ion-item *ngFor="let it of item.items">
+                {{it}}
+                <ion-buttons slot="end">
+                    <!-- <ion-button fill="outline" (click)="goUrl('cardetail',it)">详情</ion-button> -->
+                    <ion-button color="danger" fill="outline" (click)="goUrl('billing',it)">开单</ion-button>
+                </ion-buttons>
             </ion-item>
         </ion-item-group>
-        <footer [props]="app.props.footers"></footer>
+        <div *ngIf="list.length==0" class="empty">
+            尚无数据&nbsp;
+            <a href="javascript:;" (click)="add()">立即添加</a>
+        </div>
     </ion-content>
+    <ion-footer>
+        <ion-toolbar color="light">
+            <footer-container [props]="app.props.footers"></footer-container>
+        </ion-toolbar>
+    </ion-footer>
 </ion-app>

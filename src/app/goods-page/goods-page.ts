@@ -19,23 +19,27 @@ export class GoodsPage implements OnInit {
     ) { }
 
     ngOnInit() {
-        const url = this.app.getMobileUrl('getgroupgoods');
+        const url = this.app.getMobileUrl('open', {
+            open: 'shibida/goodsgroup/goods',
+            m: 'runner_open'
+        });
         this.http.get(url).subscribe((res: any) => {
             this.goods = res;
             let has = false;
             this.goods = this.goods || [];
             this.goods.map(res => {
                 if (res.active) {
-                    this.goodActive = res;
+                    this.onItem(res);
                     has = true;
                 }
             });
             if (!has) {
                 this.goodActive = this.goods.length > 1 ? this.goods[0] : null;
                 if (this.goods.length > 0) {
-                    this.goods[0].active = true;
+                    this.onItem(this.goods[0]);
                 }
             }
+
         });
         this.isBilling = this.router.get('billing') === 'true';
     }
@@ -46,6 +50,7 @@ export class GoodsPage implements OnInit {
             res.active = false;
         });
         item.active = true;
+        this.updateGoods();
     }
 
     selectGoods(item: any) {
@@ -62,7 +67,48 @@ export class GoodsPage implements OnInit {
     }
 
     addGoods(group_id) {
-        console.log(group_id);
-        this.router.go('goodsAdd', { groupId: group_id });
+        this.router.go('goodsAdd', { groupId: group_id, fid: this.goodActive.id });
+    }
+
+    updateGoods() {
+        this.goodActive.items.map(item => {
+            let goods = this.app.form.get('goods').value;
+            goods = goods || [];
+            item.items.map(i => {
+                goods.map(good => {
+                    if (i.id === good.id) {
+                        i.num = good.num;
+                    }
+                });
+            });
+        });
+    }
+    info: string = '';
+    addToCat(num, good) {
+        good['num'] = num;
+        let goods = this.app.form.get('goods').value;
+        goods = goods || [];
+        let has = false;
+        let index = -1;
+        goods.map((res, i) => {
+            if (res.id === good.id) {
+                res.num = good.num;
+                index = i;
+                has = true;
+            }
+        });
+        if (!has) {
+            goods.push(good);
+        } else {
+            if (num === 0) {
+                goods.splice(index, 1)
+            }
+        }
+        this.app.form.get('goods').setValue(goods);
+        console.log(goods);
+    }
+
+    back() {
+        this.router.go('billing');
     }
 }

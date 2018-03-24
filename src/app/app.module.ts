@@ -8,9 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MeepoUrlSerializer } from 'we7-router';
 import { UrlSerializer, RouterModule } from '@angular/router';
 import { environment } from '../environments/environment';
+import { GoodsGroupSelectComponent } from './goods-group-select/goods-group-select.component';
 @NgModule({
   declarations: [
     AppComponent,
+    GoodsGroupSelectComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,37 +1,40 @@
-<div class="form-row" [formGroup]="form">
-        <div class="weui-cell">
-            <div class="weui-cell__hd">
-                <label class="weui-label">零件名</label>
+<ion-app>
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-buttons slot="start">
+                <ion-button (click)="back()" fill="clear">
+                    <i class="ion ion-ios-arrow-left"></i>
+                    返回
+                </ion-button>
+            </ion-buttons>
+            <ion-title>
+                添加工时
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <div class="form-row" [formGroup]="form">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">工时名称</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" formControlName="title" type="text" placeholder="请输入工时名称">
+                </div>
             </div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" formControlName="title" type="text" placeholder="请输入零件名">
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">工时价格</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" formControlName="price" type="text" placeholder="请输入工时价格">
+                </div>
             </div>
         </div>
-        <div class="weui-cell">
-            <div class="weui-cell__hd">
-                <label class="weui-label">备注</label>
-            </div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" formControlName="desc" type="text" placeholder="请输入备注">
-            </div>
-        </div>
-        <div class="weui-cell">
-            <div class="weui-cell__hd">
-                <label class="weui-label">库存</label>
-            </div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" formControlName="count" type="text" placeholder="请输入库存">
-            </div>
-        </div>
-        <div class="weui-cell">
-            <div class="weui-cell__hd">
-                <label class="weui-label">价格</label>
-            </div>
-            <div class="weui-cell__bd">
-                <input class="weui-input" formControlName="price" type="text" placeholder="请输入价格">
-            </div>
-        </div>
-    </div>
-    <div class="weui-btn-area">
-        <a class="weui-btn weui-btn_primary" href="javascript:" (click)="save()">确定</a>
-    </div>
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar color="dark">
+            <ion-button slot="end" (click)="save()">保存</ion-button>
+        </ion-toolbar>
+    </ion-footer>
+</ion-app>

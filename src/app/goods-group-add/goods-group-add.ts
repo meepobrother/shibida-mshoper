@@ -26,14 +26,20 @@ export class GoodsGroupAddPage implements OnInit {
     }
 
     ngOnInit() {
-        const url = this.app.getMobileUrl('gettopgoodsgroup');
+        const url = this.app.getMobileUrl('open', {
+            open: 'shibida/goodsgroup/top',
+            m: 'runner_open'
+        });
         this.http.get(url).subscribe((res: any) => {
             this.list = res || [];
         });
     }
 
     save() {
-        let url = this.app.getMobileUrl('addgoodsgroup');
+        let url = this.app.getMobileUrl('open', {
+            open: 'shibida/goodsgroup/add',
+            m: 'runner_open'
+        });
         this.http.post(url, this.form.value).subscribe((res: any) => {
             this.list = res.list;
             this.router.go('goods');

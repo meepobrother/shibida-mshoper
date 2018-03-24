@@ -1,6 +1,6 @@
 import { Injectable, isDevMode } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { We7RouterService } from 'meepo-we7-router';
+import { We7RouterService, We7UtilService } from 'meepo-we7-router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -17,7 +17,8 @@ export class AppService {
         public http: HttpClient,
         public router: We7RouterService,
         public location: Location,
-        public fb: FormBuilder
+        public fb: FormBuilder,
+        public util: We7UtilService
     ) {
         let url = '../addons/shibida_mshoper/template/mobile/assets/app.json?t=' + new Date().getTime();
         if (isDevMode()) {
@@ -27,14 +28,16 @@ export class AppService {
             this.props = res;
         });
         this.form = this.fb.group({
-            car: [],
+            car_num: '',
+            car_id: '',
             check: [],
             goods: [],
-            needXiche: 0,
+            needXiche: '0',
             services: [],
             employers: [],
             message: [''],
-            tid: [this.guid()]
+            tid: [this.guid()],
+            price: [0]
         });
         let values = localStorage.getItem('shibida:form');
         if (values) {
@@ -44,7 +47,6 @@ export class AppService {
             }
         }
         this.form.valueChanges.subscribe(res => {
-            console.log(res);
             localStorage.setItem('shibida:form', JSON.stringify(res));
         });
     }
@@ -60,7 +62,7 @@ export class AppService {
 
     }
 
-    refreshForm(){
+    refreshForm() {
 
     }
 
@@ -68,33 +70,14 @@ export class AppService {
         this.location.back();
     }
 
-    getUrl(_do: string, params?: any) {
-        let url = '';
-        if (isDevMode()) {
-            url = `./assets/${_do}.json?t=` + new Date().getTime();
-        } else {
-            url = this.router.puts({
-                do: _do,
-                ...params
-            });
-        }
-        return url;
-    }
-
     getMobileUrl(_do: string, params?: any) {
-        let url = this.getUrl(_do, params);
-        if (isDevMode()) {
-            return url;
-        }
-        return `${location.protocol}//${location.host}/app/index.php${url}`
+        console.log(params);
+        return this.util.getMobileUrl(_do, params);
     }
 
     getWebUrl(_do: string, params?: any) {
-        let url = this.getUrl(_do, params);
-        if (isDevMode()) {
-            return url;
-        }
-        return `${location.protocol}//${location.host}/web/index.php${url}`
+        return this.util.getWebUrl(_do, params);
+        // return `${location.protocol}//${location.host}/web/index.php${url}`
     }
 
     toRegister() {

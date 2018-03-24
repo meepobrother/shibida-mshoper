@@ -1,4 +1,12 @@
 <ion-app>
+    <ion-header>
+        <ion-toolbar color="primary">
+            <ion-title>零部件</ion-title>
+            <ion-buttons slot="end">
+                <ion-button (click)="toBilling()">开单</ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
     <ion-content>
         <div class="grid grid-navs">
             <div class="grid-item" (click)="onItem(item)" *ngFor="let item of app.props.home.navs">
@@ -13,6 +21,11 @@
                 <span>{{item.title}}</span>
             </div>
         </div>
-        <footer [props]="app.props.footers"></footer>
+        <!-- <footer [props]="app.props.footers"></footer> -->
     </ion-content>
+    <ion-footer>
+        <ion-toolbar color="light">
+            <footer-container [props]="app.props.footers"></footer-container>
+        </ion-toolbar>
+    </ion-footer>
 </ion-app>

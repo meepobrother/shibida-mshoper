@@ -12,10 +12,6 @@ foreach ($fs as &$f) {
 }
 unset($f);
 
-if (DEBUG) {
-    $file = IA_ROOT . "/addons/shibida_mshoper/template/mobile/assets/getgroupgoods.json";
-    file_put_contents($file, json_encode($list));
-}
 die(json_encode($fs));
 
 function getChildren($fid)

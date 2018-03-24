@@ -1,9 +1,3 @@
-<div style="height: 50px;"></div>
 <div class="footer">
-    <div class="footer-container">
-        <div class="footer-item" routerLinkActive="active" [routerLink]="'/app/entry/site/shibida_mshoper/'+item.do" *ngFor="let item of props">
-            <i [class]="item.default.icon"></i>
-            <span>{{item.title}}</span>
-        </div>
-    </div>
+    <footer-container [props]="props"></footer-container>
 </div>

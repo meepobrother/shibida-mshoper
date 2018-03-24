@@ -143,18 +143,25 @@ export class CarNumPage implements OnInit {
             alert('请检查车牌号格式');
         } else {
             // 检查车牌号汽车是否存在
-            this.http.get(this.app.getUrl('carCheck', {
-                carNum: carNum
+            this.http.get(this.app.getMobileUrl('open', {
+                open: 'shibida/car/check',
+                carNum: carNum,
+                m: 'runner_open'
             })).subscribe((res: any) => {
                 if (res.status === 0) {
                     const item = res.data;
                     localStorage.setItem('carfiles:' + item.id, JSON.stringify(item));
-                    this.app.form.get('car').setValue(item);
+                    this.app.form.get('car_num').setValue(item.car_num);
+                    this.app.form.get('car_id').setValue(item.id);
                     this.router.go('billing', { carId: item.id });
                 } else {
                     this.router.go('carAdd', { carNum: carNum });
                 }
             });
         }
+    }
+
+    back() {
+        this.router.go('billing');
     }
 }

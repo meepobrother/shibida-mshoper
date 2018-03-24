@@ -1,6 +1,12 @@
 <?php
-global $_W,$_GPC;
+global $_W, $_GPC;
 $list = getChildren(0);
+
+foreach ($list as &$f) {
+    $cs = getChildren($f['id']);
+    $f['items'] = $cs;
+}
+unset($f);
 
 die(json_encode($list));
 

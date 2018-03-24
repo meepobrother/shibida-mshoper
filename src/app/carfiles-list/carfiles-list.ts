@@ -8,9 +8,8 @@ import { We7RouterService } from 'meepo-we7-router';
     styleUrls: ['./carfiles-list.scss']
 })
 export class CarfilesListPage implements OnInit {
-    page: number = 0;
-    psize: number = 20;
     list: any[] = [];
+    keyword: string;
     constructor(
         public http: HttpClient,
         public app: AppService,
@@ -22,9 +21,28 @@ export class CarfilesListPage implements OnInit {
     }
 
     init() {
-        const url = this.app.getMobileUrl('getCarfilesList', { page: this.page, psize: this.psize });
+        const url = this.app.getMobileUrl('open', {
+            open: 'shibida/car/list',
+            m: 'runner_open',
+            k: this.keyword ? this.keyword : ''
+        });
         this.http.get(url).subscribe((res: any[]) => {
             this.list = res;
         });
+    }
+
+    getItems(k: any) {
+        this.keyword = k.target.value;
+        this.init();
+    }
+
+    goUrl(router: string, carNum: string) {
+        this.router.go(router, {
+            carNum: carNum
+        });
+    }
+
+    add() {
+        this.router.go('carNum');
     }
 }

@@ -34,6 +34,7 @@ import { GoodsGroupAddPage } from './goods-group-add/goods-group-add';
 import { GoodsAddPage } from './goods-add/goods-add';
 import { ServiceAddPage } from './service-add/service-add';
 import { ServiceGroupAddPage } from './service-group-add/service-group-add';
+import { CarDetailComponent } from './car-detail/car-detail.component';
 
 export const routes = [{
     path: 'login',
@@ -147,6 +148,10 @@ export const routes = [{
     path: 'serviceGroupAdd',
     component: ServiceGroupAddPage,
     login: true
+}, {
+    path: 'cardetail',
+    component: CarDetailComponent,
+    login: true
 }];
 
 export const components = [
@@ -176,7 +181,8 @@ export const components = [
     GoodsGroupAddPage,
     GoodsAddPage,
     ServiceAddPage,
-    ServiceGroupAddPage
+    ServiceGroupAddPage,
+    CarDetailComponent
 ];
 import { RouterModule } from '@angular/router';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';

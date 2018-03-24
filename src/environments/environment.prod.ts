@@ -3,5 +3,6 @@ export const environment = {
   path: 'app',
   c: 'entry',
   a: 'site',
-  m: 'shibida_mshoper'
+  m: 'shibida_mshoper',
+  i: 2
 };
